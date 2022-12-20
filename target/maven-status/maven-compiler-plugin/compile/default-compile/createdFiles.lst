@@ -1,0 +1,14 @@
+com\itly\service\BrandService.class
+com\itly\util\SqlSessionFactoryUtils.class
+com\itly\web\servlet\old\AddServlet.class
+com\itly\service\impl\BrandServiceImpl.class
+com\itly\web\servlet\UserServlet.class
+com\itly\web\servlet\LoginServlet.class
+com\itly\web\servlet\BaseServlet.class
+com\itly\web\servlet\old\SelectAllServlet.class
+com\itly\web\servlet\RegisterServlet.class
+com\itly\web\servlet\BrandServlet.class
+com\itly\mapper\UserMapper.class
+com\itly\mapper\BrandMapper.class
+com\itly\pojo\User.class
+com\itly\pojo\Brand.class
