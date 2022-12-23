@@ -3,6 +3,7 @@ package com.itly.web.servlet;
 
 import com.alibaba.fastjson.JSON;
 import com.itly.pojo.Brand;
+import com.itly.pojo.PageBean;
 import com.itly.service.BrandService;
 import com.itly.service.impl.BrandServiceImpl;
 
@@ -19,7 +20,7 @@ public class BrandServlet extends BaseServlet{
     private BrandService brandService = new BrandServiceImpl();
 
     public void selectAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        System.out.println("brand selectAll...");
+        //System.out.println("brand selectAll...");
         //1. 调用service查询
         List<Brand> brands = brandService.selectAll();
 
@@ -71,9 +72,51 @@ public class BrandServlet extends BaseServlet{
 
     public void deleteById(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         //接收id
+        String id = request.getParameter("id");
 
+        int i = Integer.parseInt(id);
+        //System.out.println(i);
 
         //调用deleteById
-//        brandService.deleteByid(5);
+        brandService.deleteByid(i);
+
+        //3. 响应成功的标识
+        response.getWriter().write("success");
     }
+
+    public void update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        //1. 接收品牌数据
+        BufferedReader br = request.getReader();
+        String params = br.readLine();//json字符串
+
+        //转为Brand对象
+        Brand brand = JSON.parseObject(params, Brand.class);
+
+        //调用方法
+        brandService.update(brand);
+        
+        //3. 响应成功的标识
+        response.getWriter().write("success");
+    }
+
+    public void selectByPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //1.接收 当前页码 和 每页展示条数  url?currentPage=1&pageSize=5
+        String _currentPage = request.getParameter("currentPage");
+        String _pageSize = request.getParameter("pageSize");
+
+        int currentPage = Integer.parseInt(_currentPage);
+        int pageSize = Integer.parseInt(_pageSize);
+
+        //2.调用service查询
+        PageBean<Brand> pageBean = brandService.selectByPage(currentPage, pageSize);
+
+
+        //2. 转为JSON
+        String jsonString = JSON.toJSONString(pageBean);
+
+        //3. 写数据
+        response.setContentType("text/json;charset=utf-8");
+        response.getWriter().write(jsonString);
+    }
+
 }

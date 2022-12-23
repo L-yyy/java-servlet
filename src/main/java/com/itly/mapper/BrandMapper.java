@@ -37,4 +37,28 @@ public interface BrandMapper {
      * @param id
      */
     void deleteById(int id);
+
+
+    /**
+     * 修改数据
+     * @param brand
+     */
+    void update(Brand brand);
+
+    /**
+     * 分页查询
+     * @param begin
+     * @param size
+     * @return
+     */
+    @Select("select * from tb_brand limit #{begin} , #{size}")
+    @ResultMap("brandResultMap")
+    List<Brand> selectByPage(@Param("begin") int begin,@Param("size") int size);
+
+    /**
+     * 查询总记录数
+     * @return
+     */
+    @Select("select count(*) from tb_brand")
+    int selectTotalCount();
 }

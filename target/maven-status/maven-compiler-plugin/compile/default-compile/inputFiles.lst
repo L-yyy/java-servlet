@@ -1,7 +1,9 @@
 D:\A_studyTxet\brand-case\src\main\java\com\itly\web\servlet\old\SelectAllServlet.java
+D:\A_studyTxet\brand-case\src\main\java\com\itly\pojo\PageBean.java
 D:\A_studyTxet\brand-case\src\main\java\com\itly\pojo\Brand.java
 D:\A_studyTxet\brand-case\src\main\java\com\itly\service\BrandService.java
 D:\A_studyTxet\brand-case\src\main\java\com\itly\service\impl\BrandServiceImpl.java
+D:\A_studyTxet\brand-case\src\main\java\com\itly\web\servlet\RegisterServlet.java
 D:\A_studyTxet\brand-case\src\main\java\com\itly\pojo\User.java
 D:\A_studyTxet\brand-case\src\main\java\com\itly\mapper\UserMapper.java
 D:\A_studyTxet\brand-case\src\main\java\com\itly\util\SqlSessionFactoryUtils.java
