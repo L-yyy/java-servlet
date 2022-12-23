@@ -46,7 +46,7 @@ public interface BrandMapper {
     void update(Brand brand);
 
     /**
-     * 分页查询
+     * 分页查询,现在弃用
      * @param begin
      * @param size
      * @return
@@ -55,10 +55,17 @@ public interface BrandMapper {
     @ResultMap("brandResultMap")
     List<Brand> selectByPage(@Param("begin") int begin,@Param("size") int size);
 
+
+    // 加上查询，这里就是动态SQL，需要使用XML来编写
+    List<Brand> selectByPageAndCondition(@Param("begin") int begin,@Param("size") int size,@Param("brand") Brand brand);
+
     /**
-     * 查询总记录数
+     * 查询总记录数,现在弃用
      * @return
      */
     @Select("select count(*) from tb_brand")
     int selectTotalCount();
+
+    //更改后对应SQL也在XML中写，根据条件查询总记录数
+    int selectTotalCountByCondition(Brand brand);
 }

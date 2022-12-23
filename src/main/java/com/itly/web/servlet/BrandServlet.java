@@ -104,6 +104,7 @@ public class BrandServlet extends BaseServlet{
         String _currentPage = request.getParameter("currentPage");
         String _pageSize = request.getParameter("pageSize");
 
+
         int currentPage = Integer.parseInt(_currentPage);
         int pageSize = Integer.parseInt(_pageSize);
 
@@ -119,4 +120,30 @@ public class BrandServlet extends BaseServlet{
         response.getWriter().write(jsonString);
     }
 
+    public void selectByPageAndCondition(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //1.接收 当前页码 和 每页展示条数  url?currentPage=1&pageSize=5
+        String _currentPage = request.getParameter("currentPage");
+        String _pageSize = request.getParameter("pageSize");
+
+        int currentPage = Integer.parseInt(_currentPage);
+        int pageSize = Integer.parseInt(_pageSize);
+
+        //获取查询条件对象，这里用的post方式的data来传
+        //接收品牌数据
+        BufferedReader br = request.getReader();
+        String params = br.readLine();//json字符串
+        //转为Brand对象
+        Brand brand = JSON.parseObject(params, Brand.class);
+        System.out.println(brand);
+
+        //2.调用service查询
+        PageBean<Brand> pageBean = brandService.selectByPageAndCondition(currentPage,pageSize,brand);
+
+        //2. 转为JSON
+        String jsonString = JSON.toJSONString(pageBean);
+
+        //3. 写数据
+        response.setContentType("text/json;charset=utf-8");
+        response.getWriter().write(jsonString);
+    }
 }
