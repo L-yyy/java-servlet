@@ -134,7 +134,6 @@ public class BrandServlet extends BaseServlet{
         String params = br.readLine();//json字符串
         //转为Brand对象
         Brand brand = JSON.parseObject(params, Brand.class);
-        System.out.println(brand);
 
         //2.调用service查询
         PageBean<Brand> pageBean = brandService.selectByPageAndCondition(currentPage,pageSize,brand);

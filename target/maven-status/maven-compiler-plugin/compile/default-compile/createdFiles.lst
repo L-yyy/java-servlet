@@ -2,7 +2,6 @@ com\itly\service\BrandService.class
 com\itly\util\SqlSessionFactoryUtils.class
 com\itly\web\servlet\old\AddServlet.class
 com\itly\service\impl\BrandServiceImpl.class
-com\itly\web\servlet\UserServlet.class
 com\itly\web\servlet\LoginServlet.class
 com\itly\pojo\PageBean.class
 com\itly\web\servlet\BaseServlet.class

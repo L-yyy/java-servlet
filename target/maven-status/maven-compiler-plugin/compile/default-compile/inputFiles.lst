@@ -9,7 +9,6 @@ D:\A_studyTxet\brand-case\src\main\java\com\itly\mapper\UserMapper.java
 D:\A_studyTxet\brand-case\src\main\java\com\itly\util\SqlSessionFactoryUtils.java
 D:\A_studyTxet\brand-case\src\main\java\com\itly\web\servlet\LoginServlet.java
 D:\A_studyTxet\brand-case\src\main\java\com\itly\web\servlet\BrandServlet.java
-D:\A_studyTxet\brand-case\src\main\java\com\itly\web\servlet\UserServlet.java
 D:\A_studyTxet\brand-case\src\main\java\com\itly\web\servlet\old\AddServlet.java
 D:\A_studyTxet\brand-case\src\main\java\com\itly\mapper\BrandMapper.java
 D:\A_studyTxet\brand-case\src\main\java\com\itly\web\servlet\BaseServlet.java
